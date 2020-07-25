@@ -10,6 +10,7 @@ from controller import Controller, StateSpace
 from manager import NetworkManager
 from model import model_fn
 import keras.backend.tensorflow_backend as KTF
+import os
 
 # GPU分配
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"

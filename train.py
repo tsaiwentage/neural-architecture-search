@@ -9,6 +9,14 @@ from keras.utils import to_categorical
 from controller import Controller, StateSpace
 from manager import NetworkManager
 from model import model_fn
+import keras.backend.tensorflow_backend as KTF
+
+# GPU分配
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+gpuconfig = tf.ConfigProto()
+gpuconfig.gpu_options.allow_growth = True  # 不全部占满显存, 按需分配
+sess = tf.Session(config=gpuconfig)
+KTF.set_session(sess)
 
 # create a shared session between Keras and Tensorflow
 policy_sess = tf.Session()
